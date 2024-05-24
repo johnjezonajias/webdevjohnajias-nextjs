@@ -7,6 +7,25 @@ const config: Config = {
     "./src/app/**/*.{js,ts,jsx,tsx,mdx}",
   ],
   theme: {
+    colors: {
+      dark: {
+        base: '#000000',
+        primary: '#9fdd2b',
+        secondary: '#ffffff',
+        accent: '#0099ff',
+        shade: '#2f2f2f',
+      },
+      light: {
+        base: '#ffffff',
+        primary: '#000000',
+        secondary: '#cccccc',
+        accent: '#9fdd2b',
+        shade: '#f5f5f5',
+      },
+    },
+    fontFamily: {
+      sans: ['Quicksand', 'sans-serif'],
+    },
     fontSize: {
       'small': ['0.875rem', {
         lineHeight: '1.2',
@@ -56,6 +75,12 @@ const config: Config = {
         lineHeight: '0.84',
         fontWeight: '900',
       }]
+    },
+    screens: {
+      sm: '480px',
+      md: '768px',
+      lg: '976px',
+      xl: '1440px',
     },
     extend: {
       backgroundImage: {
