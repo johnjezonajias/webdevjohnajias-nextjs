@@ -1,0 +1,17 @@
+.splashScreen {
+    align-items: center;
+    display: flex;
+    height: 100%;
+    justify-content: center;
+    left: 0;
+    position: fixed;
+    top: 0;
+    transition: all 0.5s;
+    width: 100%;
+    z-index: 9999;
+}
+
+.preloaderContainer {
+    overflow: hidden;
+    position: relative;
+}
