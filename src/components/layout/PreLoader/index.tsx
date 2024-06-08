@@ -6,6 +6,7 @@ import { SplashScreen } from './SplashScreen';
 import cn from 'classnames';
 
 import styles from './SplashScreen.module.css';
+import useLenisGsap from '@/hooks/useLenisGsap';
 
 type PreLoaderType = {
     font: string,
@@ -14,6 +15,7 @@ type PreLoaderType = {
 
 export default function PreLoader({font, children}: PreLoaderType) {
     const isHomePage = usePathname() === '/';
+    useLenisGsap();
 
     return (
         <body className={cn("bg-light-base text-light-primary dark:bg-dark-base dark:text-dark-secondary", font)}>
