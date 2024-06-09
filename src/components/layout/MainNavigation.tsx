@@ -4,6 +4,7 @@ import Link from "next/link"
 import { NavigationMenuProps } from "@radix-ui/react-navigation-menu"
 
 import { NavigationMenu, NavigationMenuLink } from "@/components/ui/navigation-menu"
+import { useAdaptiveColor } from "@/hooks/useAdaptiveColor"
 
 /**
  * TODO: Replace with Sanity schema.
@@ -15,20 +16,25 @@ const LINKS = [
     link: '/',
   },
   {
-    name: 'Contact us',
-    slug: 'contact-us',
-    link: '/contact-us',
+    name: 'Tech Stacks',
+    slug: 'tech-stacks',
+    link: '/#tech-stacks',
   },
   {
-    name: 'Customer',
-    slug: 'customer',
-    link: '/customer',
+    name: 'Portfolio',
+    slug: 'portfolio',
+    link: '/#portfolio',
   },
   {
-    name: 'About us',
-    slug: 'about-us',
-    link: '/about-us',
+    name: 'Work Experience',
+    slug: 'work-experience',
+    link: '/#work-experience',
   },
+  {
+    name: 'Contact Me',
+    slug: 'contact',
+    link: 'mailto:johnjezonajias@gmail.com',
+  }
 ]
 
 type MenuItemProps = {
@@ -38,18 +44,21 @@ type MenuItemProps = {
 }
 
 const MainNavigation = (props: NavigationMenuProps) => {
+  const color = useAdaptiveColor('siteHeader');
+
   return (
     <NavigationMenu {...props}>
-      <ul className="flex flex-row gap-x-2">
+      <ul className="flex flex-row items-center gap-x-14">
         {!!(LINKS.length) && (
           LINKS.map(({ name, slug, link }: MenuItemProps) => {
             return (
               <li key={slug}>
                 <NavigationMenuLink asChild>
                   <Link
-                    className="flex text-normal outline-none transition-all duration-350 ease-in-out"
+                    className="font-normal flex text-md outline-none hover:text-light-accent dark:hover:text-dark-primary"
                     href={link}
                     onClick={props.onClick}
+                    style={{ color }}
                   >
                     {name}
                   </Link>

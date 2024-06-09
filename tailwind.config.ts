@@ -22,15 +22,31 @@ const config = {
         base: '#ffffff',
         primary: '#000000',
         secondary: '#cccccc',
-        accent: '#9fdd2b',
-        shade: '#f5f5f5',
+        accent: '#0099ff',
+        shade: '#ababab',
       },
     },
     fontFamily: {
       sans: ['Quicksand', 'sans-serif'],
     },
     fontSize: {
-      'small': ['0.875rem', {
+      'xs': ['0.75rem', {
+        lineHeight: '1.2',
+        fontWeight: '400',
+      }],
+      'sm': ['0.875rem', {
+        lineHeight: '1.2',
+        fontWeight: '400',
+      }],
+      'md': ['1.125rem', {
+        lineHeight: '1.2',
+        fontWeight: '400',
+      }],
+      'lg': ['1.25rem', {
+        lineHeight: '1.2',
+        fontWeight: '400',
+      }],
+      'xl': ['1.375rem', {
         lineHeight: '1.2',
         fontWeight: '400',
       }],

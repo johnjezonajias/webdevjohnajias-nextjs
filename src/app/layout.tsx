@@ -28,7 +28,7 @@ export default function RootLayout({
       <PreLoader font={quicksand.className}>
         <ScrollProgress />
         <Header />
-        <main className="flex min-h-screen flex-col items-center justify-between p-24">
+        <main className="flex min-h-screen flex-col items-center justify-between">
           {children}
         </main>
       </PreLoader>
