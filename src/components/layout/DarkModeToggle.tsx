@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from 'react';
 import cn from 'classnames';
+import { useAdaptiveColor } from '@/hooks/useAdaptiveColor';
 
 const DarkModeToggle = () => {
   const [darkMode, setDarkMode] = useState(false);
@@ -23,6 +24,8 @@ const DarkModeToggle = () => {
   const toggleDarkMode = () => {
     setDarkMode(prevMode => !prevMode);
   };
+
+  const color = useAdaptiveColor('siteHeader');
 
   return (
     <div className="flex items-center justify-center">
@@ -46,7 +49,7 @@ const DarkModeToggle = () => {
             )}
           ></span>
         </span>
-        <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">
+        <span className="text-sm font-semibold text-gray-700 dark:text-gray-300" style={{ color }}>
           {darkMode ? 'Dark' : 'Light'}
         </span>
       </label>
