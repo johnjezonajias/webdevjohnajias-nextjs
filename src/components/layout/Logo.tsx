@@ -8,7 +8,7 @@ export const Logo = () => {
 
   return (
     <div className="flex items-center">
-      <span className="text-[2.125rem] font-bold" style={{ color }}>webdev:JOHN</span>
+      <span className="text-[2.125rem] tracking-tighter font-bold" style={{ color }}>webdev:JOHN</span>
     </div>
   );
 };

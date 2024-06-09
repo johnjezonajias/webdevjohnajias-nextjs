@@ -93,3 +93,15 @@ html.lenis, html.lenis body {
 .lenis.lenis-smooth iframe {
   pointer-events: none;
 }
+
+.js-menu-item .menu-text-container {
+  overflow: hidden;
+}
+
+.js-menu-item .menu-text-container .clone {
+  color: #0099ff;
+}
+
+.dark .js-menu-item .menu-text-container .clone {
+  color: #9fdd2b;
+}

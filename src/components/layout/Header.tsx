@@ -5,7 +5,7 @@ import MainNavigation from './MainNavigation'
 
 export const Header = () => {
   return (
-    <header id="siteHeader" className="w-full fixed left-0 top-12">
+    <header id="siteHeader" className="w-full fixed left-0 top-12 z-50">
       <div className="container flex items-center justify-between h-auto outline-none transition-all duration-350 ease-in-out">
         <Logo />
         <MainNavigation />
