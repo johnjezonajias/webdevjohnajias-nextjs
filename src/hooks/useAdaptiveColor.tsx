@@ -6,10 +6,16 @@ import { calculateBrightness, findBackgroundElement } from '@/lib/dom';
 const LIGHT_COLOR = 'rgb(255, 255, 255)';
 const DARK_COLOR = 'rgb(0, 0, 0)';
 
-export function useAdaptiveColor(headerId: string, defaultColor: string = DARK_COLOR) {
-  const [color, setColor] = useState(defaultColor);
+export function useAdaptiveColor(headerId: string) {
+  const [color, setColor] = useState(DARK_COLOR);
+  const [colorHasBeenSet, setColorHasBeenSet] = useState(false);
 
   useEffect(() => {
+    const prefersDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches;
+
+    setColor(prefersDarkMode ? LIGHT_COLOR : DARK_COLOR);
+    setColorHasBeenSet(true);
+
     const handleColorChange = () => {
       const headerElement = document.getElementById(headerId);
       if (!headerElement) return;
@@ -27,20 +33,25 @@ export function useAdaptiveColor(headerId: string, defaultColor: string = DARK_C
         const brightness = calculateBrightness(bgColor);
         setColor(brightness < 50 ? LIGHT_COLOR : DARK_COLOR);
       } else {
-        setColor(defaultColor);
+        setColor(prefersDarkMode ? DARK_COLOR : LIGHT_COLOR);
       }
     };
 
-    window.addEventListener('scroll', handleColorChange);
-    window.addEventListener('resize', handleColorChange);
+    const handleInitialColorSetting = () => {
+      if (!colorHasBeenSet) {
+        handleColorChange();
+        setColorHasBeenSet(true);
+      }
+    };
 
-    handleColorChange();
+    window.addEventListener('scroll', handleInitialColorSetting);
+    window.addEventListener('resize', handleInitialColorSetting);
 
     return () => {
-      window.removeEventListener('scroll', handleColorChange);
-      window.removeEventListener('resize', handleColorChange);
+      window.removeEventListener('scroll', handleInitialColorSetting);
+      window.removeEventListener('resize', handleInitialColorSetting);
     };
-  }, [headerId, defaultColor]);
+  }, [headerId]);
 
   return color;
 }
