@@ -19,10 +19,8 @@ export default function PreLoader({font, children}: PreLoaderType) {
 
     return (
         <body className={cn("bg-light-base text-light-primary dark:bg-dark-base dark:text-dark-secondary", font)}>
-            <div className={styles.preloaderContainer}>
-                {isHomePage && <SplashScreen />}
-                {children}
-            </div>
+            {isHomePage && <div className={styles.preloaderContainer}><SplashScreen /></div>}
+            {children}
         </body>
     )
 }
