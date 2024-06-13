@@ -66,11 +66,19 @@ const config = {
         lineHeight: '1.2',
         fontWeight: '300',
       }],
-      '4xl': ['1.5rem', {
+      '2xl': ['1.75rem', {
         lineHeight: '1.2',
         fontWeight: '400',
       }],
-      '5xl': ['2.5rem', {
+      '3xl': ['2rem', {
+        lineHeight: '1.2',
+        fontWeight: '400',
+      }],
+      '4xl': ['3rem', {
+        lineHeight: '1.2',
+        fontWeight: '400',
+      }],
+      '5xl': ['3.75rem', {
         lineHeight: '1.1',
         fontWeight: '700',
       }],
