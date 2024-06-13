@@ -1,14 +1,24 @@
-'use client'
+'use client';
 
 import React from 'react';
 import { useAdaptiveColor } from '@/hooks/useAdaptiveColor';
 
-export const Logo = () => {
-  const color = useAdaptiveColor('siteHeader');
+type LogoProps = {
+  variant?: 'adaptive' | 'default';
+  fontSize?: string;
+};
+
+const Logo: React.FC<LogoProps> = ({ variant = 'default', fontSize = '2.125rem' }) => {
+  const adaptiveColor = useAdaptiveColor('siteHeader');
+  const color = variant === 'adaptive' ? adaptiveColor : 'inherit';
 
   return (
     <div className="flex items-center">
-      <span className="text-[2.125rem] tracking-tighter font-bold" style={{ color }}>webdev:JOHN</span>
+      <span className="tracking-tighter font-bold" style={{ color, fontSize }}>
+        webdev:JOHN
+      </span>
     </div>
   );
 };
+
+export default Logo;
